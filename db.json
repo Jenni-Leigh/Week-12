@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Wuthering Heights",
+        "genre": "Romance",
+        "review": "Classic love-story, not for light reading"
+    },
+    {
+        "title": "Gone Girl",
+        "genre": "Thriller",
+        "review": "Twists galore, great read!"
+    },
+    {
+        "title": "The Hobbit",
+        "genre": "Fantasy",
+        "review": "Great introduction to J.R.R. Tolkien,  you'll love it"
+    }
+]
