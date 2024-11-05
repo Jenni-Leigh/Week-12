@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 12 Project</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+
+
+<body> 
+   
+    <!-- 1 -->
+    <!-- <h1>Book List</h1>
+    <button id ="fetchBooksBtn">Fetch Books</button>
+    <div id="bookList"></div>
+    <div id="errorMessage" style="color: red;"></div> -->
+
+    <!-- <script>
+        document.getElementById('fetchBooksBtn').addEventListener('click', fetchBooks);
+
+        async function fetchBooks() {
+            try {
+                const response = await fetch('db.json');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                const books = await response.json();
+                console.log(books); // Check the structure of the response
+                displayBooks(books);
+            } catch (error) {
+                document.getElementById('errorMessage').innerText = 'Error fetching books: ' + error.message;
+            }
+        }
+
+        function displayBooks(books) {
+            const bookListDiv = document.getElementById('bookList');
+            bookListDiv.innerHTML = ''; // Clear any existing content
+
+            if (Array.isArray(books)) {
+                books.forEach(book => {
+                    const bookItem = document.createElement('div');
+                    bookItem.innerHTML = `
+                        <h2>${book.title}</h2>
+                        <p><strong>Genre:</strong> ${book.genre}</p>
+                        <p><strong>Review:</strong> ${book.review}</p>
+                        <hr>
+                    `;
+                    bookListDiv.appendChild(bookItem); // Append to the valid DOM element
+                });
+            } else {
+                bookListDiv.innerHTML = '<p>No books found or invalid data format.</p>';
+            }
+        }
+    </script> -->
+
+<!-- 2 -->
+<!-- <h1>Submit Your Book Review</h1>
+    <form id="reviewForm">
+        <label for="title">Book Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" name="genre" required>
+
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" required></textarea>
+
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <div id="responseMessage"></div> -->
+
+    <!-- <script>
+        document.getElementById('reviewForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const title = document.getElementById('title').value;
+            const genre = document.getElementById('genre').value;
+            const review = document.getElementById('review').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/reviews', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ title, genre, review })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+
+                const result = await response.json();
+                document.getElementById('responseMessage').innerText = 'Review submitted successfully!';
+
+                // Clear the form
+                document.getElementById('reviewForm').reset();
+            } catch (error) {
+                document.getElementById('responseMessage').innerText = 'Error submitting review: ' + error.message;
+            }
+        });
+    </script> -->
+
+<!-- 3 -->
+<!-- <h1>Book Reviews</h1>
+    
+<form id="reviewForm">
+    <label for="title">Book Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" required>
+
+    <label for="review">Review:</label>
+    <textarea id="review" name="review" required></textarea>
+
+    <button type="submit">Submit Review</button>
+</form>
+
+<div id="responseMessage"></div>
+<div id="bookList"></div> -->
+
+<!-- <script>
+    document.getElementById('reviewForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const title = document.getElementById('title').value;
+        const genre = document.getElementById('genre').value;
+        const review = document.getElementById('review').value;
+
+        try {
+            const response = await fetch('http://localhost:3000/api/reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ title, genre, review })
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+
+            document.getElementById('responseMessage').innerText = 'Review submitted successfully!';
+            document.getElementById('reviewForm').reset();
+            fetchReviews(); // Refresh the list
+        } catch (error) {
+            document.getElementById('responseMessage').innerText = 'Error submitting review: ' + error.message;
+        }
+    });
+
+    async function fetchReviews() {
+        try {
+            const response = await fetch('http://localhost:3000/api/reviews');
+            const reviews = await response.json();
+            displayReviews(reviews);
+        } catch (error) {
+            console.error('Error fetching reviews:', error);
+        }
+    }
+
+    function displayReviews(reviews) {
+        const bookListDiv = document.getElementById('bookList');
+        bookListDiv.innerHTML = '';
+
+        reviews.forEach(review => {
+            const reviewItem = document.createElement('div');
+            reviewItem.innerHTML = `
+                <h2>${review.title}</h2>
+                <p><strong>Genre:</strong> ${review.genre}</p>
+                <p><strong>Review:</strong> ${review.review}</p>
+                <button onclick="deleteReview('${review.title}')">Delete</button>
+                <hr>
+            `;
+            bookListDiv.appendChild(reviewItem);
+        });
+    }
+
+    async function deleteReview(title) {
+        try {
+            const response = await fetch(`http://localhost:3000/api/reviews/${title}`, {
+                method: 'DELETE'
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+
+            fetchReviews(); // Refresh the list after deletion
+        } catch (error) {
+            console.error('Error deleting review:', error);
+        }
+    }
+
+    // Fetch reviews on initial load
+    fetchReviews();
+</script> -->
+
+</body>
+</html>
+
+   
+
+<!-- tested from chatgpt maybe use it later??? -->
+<!-- <h1>Create New Entity</h1>
+<form id="entityForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+    
+    <button type="submit">Create Entity</button>
+</form>
+
+<div id="responseMessage"></div> 
+
+
+    <script src = "Week12Redo.js"></script>
+    <script src = "API_KEY.js"></script>
+
+
+    -->
+
+</body>
+
+</html>
